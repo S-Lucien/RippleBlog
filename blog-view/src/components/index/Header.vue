@@ -1,9 +1,9 @@
 <template>
 	<header ref="header">
 		<div class="view">
-			<div class="bg1"><img ref="imgbg1" src="/img/background/cherry-lake.jpg" object-fit="cover" width="100%" height="100%"/></div>
-			<div class="bg2"><img src="/img/background/原神-荧.jpg" object-fit="cover" width="100%" height="100%"/></div>
-			<div class="bg3"><img src="/img/background/呜米.jpg" object-fit="cover" width="100%" height="100%" v-if="loaded"/></div>
+			<div class="bg1"><img ref="imgbg1" src="https://s2.loli.net/2023/03/03/nbtTiISep9E1mhc.jpg" object-fit="cover" width="100%" height="100%"/></div>
+			<div class="bg2"><img src="https://s2.loli.net/2023/03/03/gDcrytK9EfbNiGI.jpg" object-fit="cover" width="100%" height="100%"/></div>
+			<div class="bg3"><img src="https://s2.loli.net/2023/03/03/HlGSLfQBis8hjIn.jpg" object-fit="cover" width="100%" height="100%" v-if="loaded"/></div>
 		</div>
 		<div class="text-malfunction" :data-word="defaultSettings.malfunctionText">
 			<div class="line"></div>

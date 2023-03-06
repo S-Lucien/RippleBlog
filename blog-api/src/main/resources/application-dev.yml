@@ -10,9 +10,9 @@ blog:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     username: root
-    password: 
+    password:
   redis:
     host: 
     password: 
@@ -49,13 +49,13 @@ comment:
   notify.channel: mail
   default-open: true
 
-
 upload:
   channel: local
   file:
-    path: /Users/rippleSu/blog/upload/
+    path: /home/Blog/upload/
     access-path: /image/**
     resources-locations: file:${upload.file.path}
+  url: http://xxx:xxxx/random?seed=
 
 aliyun:
   accessKeyId: 
@@ -63,21 +63,13 @@ aliyun:
   oss:
     endPoint: 
     bucketName: 
-#tg:
-#  bot:
-#    api: https://api.telegram.org/bot
-#    token: 1234567890:qwertyuiopasdfghjklzxcvbnm
-#    chat-id: 1234567890
-#    use-proxy: false
-#    use-reverse-proxy: true
-#    reverse-proxy-url: https://tg-api-open.naccl.workers.dev
-#
+
 http.proxy.server.host: 127.0.0.1
 http.proxy.server.port: 7890
 http.proxy.server.timeout: 10000
-# GitHub token \u6559\u7A0B\u89C1 https://naccl.github.io/PictureHosting/#/pictureHosting/help
-#upload.github.token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-#upload.github.username: Naccl
-#upload.github.repos: test
-#upload.github.repos-path: /comment/avatar
 
+images:
+  # 随机图片所在的本地目录
+  dir: /home/imageLib/
+  # 如果未找到图片返回的默认图片路径
+  default: /home/404.png

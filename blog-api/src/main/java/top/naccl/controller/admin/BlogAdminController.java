@@ -3,6 +3,7 @@ package top.naccl.controller.admin;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,6 +53,12 @@ public class BlogAdminController {
 	TagService tagService;
 	@Autowired
 	CommentService commentService;
+
+	/**
+	 * 文章首图的url
+	 */
+	@Value("${upload.url}")
+	private String url;
 
 	/**
 	 * 获取博客文章列表
@@ -257,6 +264,11 @@ public class BlogAdminController {
 			user.setId(1L);//个人博客默认只有一个作者
 			blog.setUser(user);
 
+			// 给url加上一个不重复的随机串，防止浏览器遇到相同url只发送一个请求
+			if(blog.getFirstPicture().equals("r")){
+				blog.setFirstPicture(url + UUID.randomUUID());
+			}
+
 			blogService.saveBlog(blog);
 			//关联博客和标签(维护 blog_tag 表)
 			for (Tag t : tags) {
@@ -288,7 +300,6 @@ public class BlogAdminController {
 		}
 		MultipartFile image = multiRequest.getFile("image");
 		if(image != null){
-			System.out.println(image.getName());
 			//获取图片名
 			String randomName = image.getOriginalFilename();
 			if(randomName == null){

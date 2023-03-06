@@ -25,6 +25,6 @@ public class ChannelFactory {
 			case UploadConstants.ALIYUN:
 				return SpringContextUtils.getBean(AliyunChannel.class);
 		}
-		throw new RuntimeException("Unsupported value in [application.properties]: [upload.channel]");
+		throw new RuntimeException("Unsupported value in [application.yml]: [upload.channel]");
 	}
 }
